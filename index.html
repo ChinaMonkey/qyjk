@@ -1,59 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>现金抵用卷</title>
-  <style>
-    /* 页面整体样式 */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    /* 标题样式 */
-    h1 {
-      color: #333;
-    }
-
-    /* 图片样式 */
-    img {
-      max-width: 80%;
-      max-height: 80%;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机文本展示页面</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <h1 class="text-3xl font-bold text-gray-800 mb-8"><font color="red">恭喜您中奖了！</font></h1>
+    <div class="bg-red-500 w-4/5 h-16 flex items-center justify-center rounded-md shadow-md">
+        <p id="random-text" class="text-white text-lg"></p>
+    </div>
+    <script>
+        const randomTexts = [           
+            "现金劵 188 元",
+            "现金劵 99 元",
+            "现金劵 88 元"
+        ];
 
-<body>
-  <h1>恭喜你中奖了！</h1>
-  <img id="random-img" src="" alt="随机图片">
-  <script>
-    // 定义图片路径数组，你可以将自己的图片路径添加到这里
-    const imageUrls = [
-      "./img/688.jpg", 
-      "./img/500.png"
-    ];
-
-    // 生成随机索引
-    const randomIndex = Math.floor(Math.random() * imageUrls.length);
-
-    // 获取图片元素
-    const imgElement = document.getElementById('random-img');
-
-    // 设置图片的 src 属性为随机选择的图片路径
-    imgElement.src = imageUrls[randomIndex];
-    imgElement.alt = `随机图片 ${randomIndex + 1}`;
-  </script>
+        const randomIndex = Math.floor(Math.random() * randomTexts.length);
+        const textElement = document.getElementById('random-text');
+        textElement.textContent = randomTexts[randomIndex];
+    </script>
 </body>
-
 </html>
+    
